@@ -19,6 +19,9 @@ module.exports = {
           'brandColor': '#000000',
         }
       },
+      backgroundImage: {
+        'image-placeholder': "url('./assets/imgPlaceholder.jpg')",
+      },
     },
   },
   plugins: [],
