@@ -36,4 +36,9 @@
   .text-button-s { @apply font-inter font-medium; }
   .text-button-xs { @apply font-inter font-medium text-[.875rem]; }
 
+  .border-check { @apply border-solid border-8 border-sky-500; }
+  .grid-cols-custom-max-2 { grid-template-columns: repeat(auto-fill, minmax(max(19.4375rem, calc((100% - 4rem) / 2)), 1fr)); }
+
+
 }
+

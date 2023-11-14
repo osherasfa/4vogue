@@ -1,3 +1,4 @@
+import React from 'react'
 import placeHolder2 from "./assets/imgPlaceholder2.png"
 import placeHolder3 from "./assets/imgPlaceholder3.png"
 import placeHolder4 from "./assets/imgPlaceholder4.png"
@@ -14,7 +15,7 @@ function App() {
         </svg>
       </div>
 
-      <div className="h-[200rem] mx-8 mx-auto max-w-[70rem] font-inter">
+      <div className="h-[200rem] px-8 mx-auto max-w-[70rem] font-inter">
         <nav className="flex gap-1 items-center my-4">
           <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1h10M1 5h10M1 9h10" stroke="#141718" stroke-width="1.5" stroke-linecap="round"/>
@@ -26,43 +27,39 @@ function App() {
           </svg>
           <div className="bg-neutral-950 text-white w-6 aspect-square flex justify-center items-center rounded-full"><h1>2</h1></div>
         </nav>
-        <main>
-          <section >
-            <div className="h-[20rem] bg-image-placeholder bg-cover bg-bottom"></div>
-            <h1 className="text-headline4 tracking-[-0.025rem] leading-[2.75rem] mt-8">Simply Unique<span className="text-neutral-700">/</span><br/> Simply Better<span className="text-neutral-700">.</span></h1>
-            <p className="text-neutral-700 text-caption1 mt-4 mb-10"><span className="text-neutral-800 text-caption1-semi">4Vouge</span> is a gift & decorations store based in HCMC, Vietnam. Est since 2019. </p>
+        <main className="[&>*]:my-8">
+          <div className="h-[20rem] bg-image-placeholder bg-cover bg-bottom !mt-0"></div>
+          <section>
+            <h1 className="text-headline4 tracking-[-0.025rem] leading-[2.75rem]">Simply Unique<span className="text-neutral-700">/</span><br/> Simply Better<span className="text-neutral-700">.</span></h1>
+            <p className="text-neutral-700 text-caption1 mt-4"><span className="text-neutral-800 text-caption1-semi">4Vouge</span> is a gift & decorations store based in HCMC, Vietnam. Est since 2019. </p>
+          </section>
+          <section className='grid grid-rows-2 min-[43.875rem]:grid-rows-2 grid-cols-custom-max-2 gap-4 [&>div]:bg-[#F3F5F7]'>
+            <div className="row-span-2">
+              <h6 className="text-headline6">Living Room</h6>
+              <a className="text-button-xs underline underline-offset-8 mb-auto" href=".">Shop Now ➜</a>
+              <img src={placeHolder2} alt="sofa"/>
+            </div>
+            <div className="flex items-center justify-between p-8">
+              <div className='self-end'>
+                <h6 className="text-headline6">Bedroom</h6>
+                <a className="text-button-xs underline underline-offset-8 w-1/2" href=".">Shop Now ➜</a>
+              </div>
+              <img className="w-1/3" src={placeHolder4} alt="armchair" />
+            </div>
+            <div className="flex items-center justify-between p-8">
+              <div className='self-end'>
+                <h6 className="text-headline6">Kitchen</h6>
+                <a className="text-button-xs underline underline-offset-8 w-1/2" href=".">Shop Now ➜</a>
+              </div>
+              <img className="w-1/2" src={placeHolder3} alt="toast"/>
+            </div>
           </section>
           <section>
-            <ul className="flex flex-wrap gap-4 [&>div]:min-w-[19.4375rem]">
-
-              <div className="flex-1 px-8 pt-8 bg-[#F3F5F7] hover:bg-bg-placeholder bg-cover hover:text-white">
-                <h6 className="text-headline6">Living Room</h6>
-                <a className="text-button-xs underline underline-offset-8 mb-auto" href=".">Shop Now ➜</a>
-                <img src={placeHolder2} alt="armchair" />
+            <h1 className="text-headline5">New<br/>Arrivals</h1>
+            <div>
+              <div className="aspect-[.75] bg-bg-product1 bg-center bg-contain w-[14.4375rem] bg-no-repeat bg-red-600">
               </div>
-
-
-              <div className="[&>div]:p-8 [&>div]:bg-[#F3F5F7] [&>div]:h-full flex flex-1 flex-col gap-4">
-
-                <div className="flex items-center justify-center">
-                  <div>
-                    <h6 className="text-headline6">Bedroom</h6>
-                    <a className="text-button-xs underline underline-offset-8 mb-auto w-1/2" href=".">Shop Now ➜</a>
-                  </div>
-                  <img className="w-1/2" src={placeHolder4} alt="armchair" />
-                </div>
-
-
-                <div className=" flex items-center justify-center">
-                  <div>
-                    <h6 className="text-headline6">Kitchen</h6>
-                    <a className="text-button-xs underline underline-offset-8 mb-auto w-1/2" href=".">Shop Now ➜</a>
-                  </div>
-                  <img className="w-1/2" src={placeHolder3} alt="armchair" />
-                </div>
-
-              </div>
-            </ul>
+            </div>
           </section>
         </main>
       </div>

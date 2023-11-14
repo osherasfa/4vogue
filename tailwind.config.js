@@ -22,6 +22,7 @@ module.exports = {
       backgroundImage: {
         'image-placeholder': "url('./assets/imgPlaceholder.jpg')",
         'bg-placeholder': "url('./assets/bgPlaceholder.jpg')",
+        'bg-product1': "url('./assets/product1.jpg')",
       },
     },
   },
