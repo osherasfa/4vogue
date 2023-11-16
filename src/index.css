@@ -36,8 +36,11 @@
   .text-button-s { @apply font-inter font-medium; }
   .text-button-xs { @apply font-inter font-medium text-[.875rem]; }
 
-  .border-check { @apply border-solid border-8 border-sky-500; }
   .grid-cols-custom-max-2 { grid-template-columns: repeat(auto-fill, minmax(max(19.4375rem, calc((100% - 4rem) / 2)), 1fr)); }
+  .product-ticket{ @apply text-hairline1 px-3 rounded; }
+  .grid-product-rows{ grid-template-rows: minmax(0, auto) minmax(0, 1fr) minmax(0, 1fr); }
+  .service-box { @apply bg-[#F3F5F7] p-4 grow min-w-[7.5rem]; }
+  /* .breakout { @apply  top-0 left-0 w-full h-full bg-red-700; } */
 
 
 }
