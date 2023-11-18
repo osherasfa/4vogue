@@ -40,7 +40,7 @@
   .product-ticket{ @apply text-hairline1 px-3 rounded; }
   .grid-product-rows{ grid-template-rows: minmax(0, auto) minmax(0, 1fr) minmax(0, 1fr); }
   .service-box { @apply bg-[#F3F5F7] p-4 grow min-w-[7.5rem]; }
-  /* .breakout { @apply  top-0 left-0 w-full h-full bg-red-700; } */
+  .divided-by-two{ @apply grow basis-1/2 min-w-[20rem] h-[28rem] md:h-[32rem]; }
 
 
 }

@@ -20,9 +20,12 @@ module.exports = {
         }
       },
       backgroundImage: {
-        'image-placeholder': "url('./assets/imgPlaceholder.jpg')",
-        'bg-placeholder': "url('./assets/bgPlaceholder.jpg')",
         'bg-product1': "url('./assets/product1.jpg')",
+        'bg-placeholder': "url('./assets/bgPlaceholder.jpg')",
+        'image-placeholder': "url('./assets/imgPlaceholder.jpg')",
+      },
+      screens: {
+        'mb' : '62.5rem'
       },
     },
   },
