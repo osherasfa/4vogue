@@ -25,7 +25,7 @@ module.exports = {
         'image-placeholder': "url('./assets/imgPlaceholder.jpg')",
       },
       screens: {
-        'mb' : '62.5rem'
+        'mb' : '64rem'
       },
     },
   },

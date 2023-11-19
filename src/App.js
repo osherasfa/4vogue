@@ -8,11 +8,16 @@ import heart from "./assets/heart.png"
 import star from "./assets/star.svg"
 import bgPlaceholder2 from "./assets/bgPlaceholder2.jpg"
 import bgPlaceholder3 from "./assets/bgPlaceholder3.jpg"
+import bgPlaceholder4 from "./assets/bgPlaceholder4.jpg"
+import bgPlaceholder5 from "./assets/bgPlaceholder5.jpg"
 import trackLogo from "./assets/track.svg"
 import phoneLogo from "./assets/phone.svg"
 import moneyLogo from "./assets/money.svg"
 import lockLogo from "./assets/lock.svg"
 import emailLogo from "./assets/email.svg"
+import facebookLogo from "./assets/facebook.svg"
+import instaLogo from "./assets/instagram.svg"
+import youtubeLogo from "./assets/youtube.svg"
 
 function App() {
   const productCard = index => (    
@@ -36,6 +41,14 @@ function App() {
     </div>
   )
 
+  const post = (key, title, img) => (
+  <div key={key} className='w-full h-60 mb:post-layout flex flex-col gap-3'>
+    <img className='grow h-0 object-cover' src={img} alt="placeholder"/>
+    <h1 className='text-headline7'>{title}</h1>
+    <a className="text-button-xs underline underline-offset-8" href=".">Read More ➜</a>
+  </div>
+  )
+
   return (
     <div className="App">
       <div className="text-caption2-semi text-[#343839] bg-[#F3F5F7] text-center py-2 flex justify-center items-center">
@@ -46,7 +59,7 @@ function App() {
         </svg>
       </div>
 
-      <div className="font-inter h-[300rem]">
+      <div className="font-inter">
         <nav className="flex gap-1 items-center my-4 mx-auto px-8 max-w-[70rem]">
           <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1h10M1 5h10M1 9h10" stroke="#141718" strokeWidth="1.5" strokeLinecap="round"/>
@@ -102,37 +115,27 @@ function App() {
           </section>
           <section className='!p-0 !max-w-none flex flex-wrap [&>*]:divided-by-two'>
             <div><img className='h-full w-full object-cover' src={bgPlaceholder2} alt="living room"/></div>
-            <div className='bg-[#F3F5F9] flex flex-col pl-8 justify-center gap-4 [&>*]:w-3/4'>
+            <div className='bg-[#F3F5F9] flex flex-col pl-8 justify-center gap-4 [&>*]:max-w-[25rem]'>
               <p className='text-hairline1 text-palette-blue'>SALE UP TO 35% OFF</p>
               <h1 className='text-headline5'>HUNDREDS OF NEW LOWER PRICES!</h1>
               <p className='text-body2'>It's more affordable than ever to give every room in your home a stylish makeover</p>
               <a className="text-button-xs underline underline-offset-8" href=".">Shop Now ➜</a>
             </div>
           </section>
-          <section className=''>
+          <section className=' flex flex-col justify-center gap-10 py-10 mb:py-20'>
             <div className='flex items-center justify-between'>
               <h1 className='text-headline5'>Articles</h1>
               <a className="text-button-xs underline underline-offset-8" href=".">More Articles ➜</a>
             </div>
             <div className='flex flex-wrap gap-4 mx-auto'>
-              <div className='aspect-[.85] max-w-[21rem] min-w-[19rem] flex flex-col gap-3'>
-                <img src={bgPlaceholder3} alt="placeholder"/>
-                <h1 className='text-headline7'>7 ways to decor your home</h1>
-                <a className="text-button-xs underline underline-offset-8" href=".">Read More ➜</a>
-              </div>
-              <div className='aspect-[.85] max-w-[21rem] min-w-[19rem] flex flex-col gap-3'>
-                <img src={bgPlaceholder3} alt="placeholder"/>
-                <h1 className='text-headline7'>7 ways to decor your home</h1>
-                <a className="text-button-xs underline underline-offset-8" href=".">Read More ➜</a>
-              </div>
-              <div className='aspect-[.85] max-w-[21rem] min-w-[19rem] flex flex-col gap-3'>
-                <img src={bgPlaceholder3} alt="placeholder"/>
-                <h1 className='text-headline7'>7 ways to decor your home</h1>
-                <a className="text-button-xs underline underline-offset-8" href=".">Read More ➜</a>
-              </div>
+            {Object.entries({
+              '7 ways to decor your home': bgPlaceholder3,
+              'Kitchen organization': bgPlaceholder4,
+              'Decor your bedroom': bgPlaceholder5
+            }).map(([title, img], index) => post(index, title, img))}
             </div>
           </section>
-          <section className='relative [&>*]:p-8 h-[22.5rem] !max-w-none bg-[#F2F4F6] overflow-hidden'>
+          <section className='relative [&>*]:p-8 h-[22.5rem] !max-w-none bg-[#F2F4F6] overflow-hidden !mb-0'>
             <img className='absolute hidden w-[35rem] left-[70%] bottom-[-10rem] mix-blend-multiply mb:block' src={placeHolder3} alt="sofa" />
             <img className='absolute hidden w-[25rem] left-[-10rem] bottom-[-7rem] mix-blend-multiply mb:block' src={placeHolder4} alt="shelf" />
             <div className='absolute inset-0 flex flex-col items-center justify-center'>
@@ -146,6 +149,25 @@ function App() {
             </div>
           </section>
         </main>
+        <footer className='bg-[#141718] text-caption1 text-neutral-400 p-16 [&>*]:max-w-[70rem] [&>*]:mx-auto'>
+            <div className='flex flex-wrap gap-10'>
+              <h1 className="font-poppins font-medium text-white pr-4 mr-[-1rem] border-r-[1px] border-neutral-500">4Vogue<span className="text-neutral-700">.</span></h1>
+              <p className='mr-auto'>Gift & Decoration Store</p>
+              <p>Home</p>
+              <p>Shop</p>
+              <p>Product</p>
+              <p>Blog</p>
+              <p>Contact Us</p>
+            </div>
+            <div className='flex flex-wrap gap-7 border-t-[1px] border-neutral-500 pt-4 mt-12'>
+              <p>Copyright © 2023 3legant. All rights reserved</p>
+              <p className='font-bold text-white'>Privacy Policy</p>
+              <p className='font-bold text-white mr-auto'>Terms of Use</p>
+              <img src={instaLogo} alt="instagram" />
+              <img src={facebookLogo} alt="facebook" />
+              <img src={youtubeLogo} alt="youtube" />
+            </div>
+          </footer>
       </div>
     </div>
   );

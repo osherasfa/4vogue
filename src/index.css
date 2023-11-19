@@ -41,6 +41,7 @@
   .grid-product-rows{ grid-template-rows: minmax(0, auto) minmax(0, 1fr) minmax(0, 1fr); }
   .service-box { @apply bg-[#F3F5F7] p-4 grow min-w-[7.5rem]; }
   .divided-by-two{ @apply grow basis-1/2 min-w-[20rem] h-[28rem] md:h-[32rem]; }
+  .post-layout { @apply w-auto h-full aspect-[.85] max-w-[21rem] min-w-[19rem]; }
 
 
 }
