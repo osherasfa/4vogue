@@ -10,14 +10,15 @@ import bgPlaceholder2 from "./assets/bgPlaceholder2.jpg"
 import bgPlaceholder3 from "./assets/bgPlaceholder3.jpg"
 import bgPlaceholder4 from "./assets/bgPlaceholder4.jpg"
 import bgPlaceholder5 from "./assets/bgPlaceholder5.jpg"
-import trackLogo from "./assets/track.svg"
-import phoneLogo from "./assets/phone.svg"
-import moneyLogo from "./assets/money.svg"
-import lockLogo from "./assets/lock.svg"
-import emailLogo from "./assets/email.svg"
-import facebookLogo from "./assets/facebook.svg"
-import instaLogo from "./assets/instagram.svg"
-import youtubeLogo from "./assets/youtube.svg"
+import trackIcon from "./assets/track.svg"
+import phoneIcon from "./assets/phone.svg"
+import moneyIcon from "./assets/money.svg"
+import lockIcon from "./assets/lock.svg"
+import emailIcon from "./assets/email.svg"
+import facebookIcon from "./assets/facebook.svg"
+import instaIcon from "./assets/instagram.svg"
+import youtubeIcon from "./assets/youtube.svg"
+import arrowIcon from "./assets/arrow.svg"
 
 function App() {
   const productCard = index => (    
@@ -35,7 +36,7 @@ function App() {
     )
   const serviceCard = ([title, [desc, img]], index) => (
     <div key={index}>
-      <img src={img} alt="logo"/>
+      <img src={img} alt="Icon"/>
       <h6 className='text-headline7'>{title}</h6>
       <p>{desc}</p>
     </div>
@@ -48,23 +49,68 @@ function App() {
     <a className="text-button-xs underline underline-offset-8" href=".">Read More ➜</a>
   </div>
   )
+  
+  React.useEffect(() => {
+  const container = document.querySelector('#cards-container');            
+
+  let startX;
+  let scrollLeft;
+  let isDown;
+
+  container.addEventListener('mousedown',e => mouseIsDown(e));  
+  container.addEventListener('mouseup',e => mouseUp(e))
+  container.addEventListener('mouseleave',e=>mouseLeave(e));
+  container.addEventListener('mousemove',e=>mouseMove(e));
+
+  function mouseIsDown(e){
+    isDown = true;
+    startX = e.pageX - container.offsetLeft;
+    scrollLeft = container.scrollLeft;
+  }
+  function mouseUp(e){
+    isDown = false;
+  }
+  function mouseLeave(e){
+    isDown = false;
+  }
+  function mouseMove(e){
+    if(isDown){
+      e.preventDefault();
+
+      //Move Horizontally
+      const x = e.pageX - container.offsetLeft;
+      const walkX = x - startX;
+      container.scrollLeft = scrollLeft - walkX;
+    }
+  }
+  }, [])
+  
 
   return (
-    <div className="App">
-      <div className="text-caption2-semi text-[#343839] bg-[#F3F5F7] text-center py-2 flex justify-center items-center">
-        <img src={ticketPercent} alt="ticket percent" />
-        <h1 className="mr-6 ml-2">30% off storewide — Limited time! </h1>
-        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fillRule="evenodd" clipRule="evenodd" d="M9.942 1.442a.625.625 0 0 0-.884-.884L5.5 4.116 1.942.558a.625.625 0 1 0-.884.884L4.616 5 1.058 8.558a.625.625 0 1 0 .884.884L5.5 5.884l3.558 3.558a.625.625 0 1 0 .884-.884L6.384 5l3.558-3.558Z" fill="#343839"/>
-        </svg>
+    <div className="App select-none">
+      <div className="bg-[#F3F5F7] text-caption2-semi text-[#343839]">
+        <div className='flex justify-center items-center gap-2 py-2 max-w-[70rem] mx-auto px-8'>
+          <img className='ml-auto' src={ticketPercent} alt="ticket percent" />
+          <h1>30% off storewide — Limited time! </h1>
+          <a className="text-button-xs text-palette-blue underline underline-offset-8 hidden md:block" href=".">Shop Now ➜</a>
+          <svg className='cursor-pointer ml-auto' width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" clipRule="evenodd" d="M9.942 1.442a.625.625 0 0 0-.884-.884L5.5 4.116 1.942.558a.625.625 0 1 0-.884.884L4.616 5 1.058 8.558a.625.625 0 1 0 .884.884L5.5 5.884l3.558 3.558a.625.625 0 1 0 .884-.884L6.384 5l3.558-3.558Z" fill="#343839"/>
+          </svg>
+        </div>
       </div>
 
       <div className="font-inter">
-        <nav className="flex gap-1 items-center my-4 mx-auto px-8 max-w-[70rem]">
-          <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <nav className="flex gap-1 items-center my-4 mx-auto px-8 max-w-[70rem] [&>*]:cursor-pointer">
+          <svg className='md:hidden' width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1h10M1 5h10M1 9h10" stroke="#141718" strokeWidth="1.5" strokeLinecap="round"/>
           </svg>
           <h1 className="font-poppins font-medium mr-auto">4Vogue<span className="text-neutral-700">.</span></h1>
+          <div className='gap-10 font-spaceGrotesk text-neutral-500 mr-auto hidden md:flex !cursor-auto [&>*]:cursor-pointer'>
+            <h3 className='text-neutral-900'>Home</h3>
+            <h3>Shop</h3>
+            <h3>Products</h3>
+            <h3>Contact us</h3>
+          </div>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9 6v1a3 3 0 1 0 6 0V6" stroke="#141718" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             <path d="M15.611 3H8.389a4 4 0 0 0-3.945 3.342l-1.667 10A4 4 0 0 0 6.722 21h10.556a4 4 0 0 0 3.946-4.658l-1.667-10A4 4 0 0 0 15.612 3Z" stroke="#141718" strokeWidth="1.5" strokeLinejoin="round"/>
@@ -72,7 +118,17 @@ function App() {
           <div className="bg-neutral-950 text-white w-6 aspect-square flex justify-center items-center rounded-full"><h1>2</h1></div>
         </nav>
         <main className="[&>*]:mx-auto [&>*]:my-8 [&>*]:px-8 [&>*]:max-w-[70rem]">
-          <section className='!my-0'><div className="h-[20rem] bg-image-placeholder bg-cover bg-bottom"></div></section>
+          <section className='!my-0'>
+            <div className="h-[20rem] bg-image-placeholder bg-cover bg-bottom flex justify-between items-center px-8 py-8">
+              <img className='bg-neutral-50 p-1 rounded-full cursor-pointer' src={arrowIcon} alt="arrow" />
+              <div className='self-end flex gap-3'>
+                <div className='rounded-full w-10 h-3 bg-neutral-50'></div>
+                <div className='aspect-square rounded-full w-3 bg-neutral-50'></div>
+                <div className='aspect-square rounded-full w-3 bg-neutral-50'></div>
+              </div>
+              <img className='rotate-180 bg-neutral-50 p-1 rounded-full cursor-pointer' src={arrowIcon} alt="arrow" />
+            </div>
+          </section>
           <section>
             <h1 className="text-headline4 tracking-[-0.025rem] leading-[2.75rem]">Simply Unique<span className="text-neutral-700">/</span><br/> Simply Better<span className="text-neutral-700">.</span></h1>
             <p className="text-neutral-700 text-caption1 mt-4"><span className="text-neutral-800 text-caption1-semi">4Vouge</span> is a gift & decorations store based in HCMC, Vietnam. Est since 2019. </p>
@@ -99,18 +155,20 @@ function App() {
             </div>
           </section>
           <section>
-            <h1 className="text-headline5">New<br/>Arrivals</h1>
-            <div className='flex justify-between overflow-x-scroll gap-4 py-8'>
+            <div className='flex items-center justify-between'>
+              <h1 className="text-headline5">New<br/>Arrivals</h1>
+              <a className="text-button-xs underline underline-offset-8" href=".">More Products ➜</a>
+            </div>
+            <div id='cards-container' className='flex justify-between overflow-x-scroll gap-4 py-8'>
               {Array(6).fill(0).map((product, index) => productCard(index))}
             </div>
-            <a className="text-button-xs underline underline-offset-8 mb-auto" href=".">More Products ➜</a>
           </section>
           <section className='flex flex-wrap gap-4 [&>div]:service-box [&>h6]:text-headline7 [&>p]:text-poppins [&>p]:text-neutral-500'>
             {Object.entries({
-              'Free shipping': ['Order above 200$', trackLogo],
-              'Money-back': ['30 days guarantee', moneyLogo],
-              'Secure Payments': ['Secured by Stripe', lockLogo],
-              '24/7 Support': ['Phone and Email support', phoneLogo]
+              'Free shipping': ['Order above 200$', trackIcon],
+              'Money-back': ['30 days guarantee', moneyIcon],
+              'Secure Payments': ['Secured by Stripe', lockIcon],
+              '24/7 Support': ['Phone and Email support', phoneIcon]
             }).map((entries, index) => serviceCard(entries, index))}
           </section>
           <section className='!p-0 !max-w-none flex flex-wrap [&>*]:divided-by-two'>
@@ -142,7 +200,7 @@ function App() {
               <h1 className='text-headline4'>Join Out Newsletter</h1>
               <p className='font-inter'>Sign up for deals, new products and promotions</p>
               <form className='flex my-4 gap-2 w-full max-w-[30rem] text-button-s text-neutral-400 border-b-[1px] border-neutral-400 py-2' action="/" method="POST">
-                <img src={emailLogo} alt="email logo" />
+                <img src={emailIcon} alt="email Icon" />
                 <input className='grow bg-transparent text-black placeholder:text-neutral-400 outline-none' type="text" id="emailForm" name="email" placeholder="Email address"/>
                 <button type="submit" onClick={(e) => e.preventDefault()}>Signup</button>
               </form>
@@ -163,9 +221,9 @@ function App() {
               <p>Copyright © 2023 3legant. All rights reserved</p>
               <p className='font-bold text-white'>Privacy Policy</p>
               <p className='font-bold text-white mr-auto'>Terms of Use</p>
-              <img src={instaLogo} alt="instagram" />
-              <img src={facebookLogo} alt="facebook" />
-              <img src={youtubeLogo} alt="youtube" />
+              <img src={instaIcon} alt="instagram" />
+              <img src={facebookIcon} alt="facebook" />
+              <img src={youtubeIcon} alt="youtube" />
             </div>
           </footer>
       </div>

@@ -39,10 +39,23 @@
   .grid-cols-custom-max-2 { grid-template-columns: repeat(auto-fill, minmax(max(19.4375rem, calc((100% - 4rem) / 2)), 1fr)); }
   .product-ticket{ @apply text-hairline1 px-3 rounded; }
   .grid-product-rows{ grid-template-rows: minmax(0, auto) minmax(0, 1fr) minmax(0, 1fr); }
-  .service-box { @apply bg-[#F3F5F7] p-4 grow min-w-[7.5rem]; }
+  .service-box { @apply bg-[#F3F5F7] p-4 py-12 grow min-w-[7.5rem] flex flex-col gap-1 items-start; }
   .divided-by-two{ @apply grow basis-1/2 min-w-[20rem] h-[28rem] md:h-[32rem]; }
   .post-layout { @apply w-auto h-full aspect-[.85] max-w-[21rem] min-w-[19rem]; }
-
-
 }
 
+/* width */
+#cards-container::-webkit-scrollbar {
+  width: 1rem;
+  height: .25rem;
+}
+
+/* Track */
+#cards-container::-webkit-scrollbar-track {
+  background: #E8ECEF;
+}
+
+/* Handle */
+#cards-container::-webkit-scrollbar-thumb {
+  background: #343839;
+}
